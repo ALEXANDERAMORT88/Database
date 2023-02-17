@@ -1,0 +1,120 @@
+<!-- // inicio de Navegador  -->
+<div class="container-fluid my-4 ">
+
+  <nav class="navbar bg-body-tertiary  ">
+
+    <div class="container d-flex justify-content-around align-items-center ">
+      <!-- Navegador Izquierdo -->
+        <div class="row">
+          <div class="col">
+            <a class="navbar-brand" href="#">
+              <img src="https://cdn-icons-png.flaticon.com/512/5333/5333722.png" alt="Viajando" width="50" height="50"/></a>
+            </div>
+        </div>
+        <!-- Navegador derecho Bototes  -->
+        <div class="col-4 d-flex justify-content-evenly">
+          <div class="col">
+              <button type="button" class="btn btn-outline-warning">
+                Inicio
+              </button>
+            </div>
+            <div class="col">
+              <button type="button" class="btn btn-outline-warning">
+                Reservas
+              </button>
+            </div>
+           <div class="col">
+            <button type="button" class="btn btn-outline-warning">
+              Usuario
+            </button>
+           </div>
+        </div>
+    </div>
+  </nav>
+</div>
+<!-- Fin navegacion  -->
+
+
+<!-- ingreso de Busqueda  -->
+<div class="container d-flex justify-content-center align-items-center serach bg-primary-subtle ">
+
+  <div class="row ">
+
+    <div class="col">
+      <div class="form-floating mb-3">
+        <input type="text" [(ngModel)]="host_location" class="form-control" id="floatingInput"
+          placeholder="name@example.com"/>
+        <label for="floatingInput">Ingresa una Ciudad </label>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="form-floating mb-3">
+        <input type="number" [(ngModel)]="price" class="form-control" id="floatingInput"
+          placeholder="name@example.com"/>
+        <label for="floatingInput">Ingresa presupuesto</label>
+      </div>
+    </div>
+
+    <div class="">
+      <button type="button" class="btn btn-success" (click)="sendHotel()">
+        Success
+      </button>
+    </div>
+  </div>
+</div>
+
+
+<div class="container respo d-flex flex-wrap justify-content-center">
+  <div class="row" *ngFor="let hotel of airBnbData">
+    <div class="col m-2">
+      <div class="card" style="width: 300px">
+        <img [src]="hotel.images.picture_url" class="card-img-top" alt="..." />
+        <div class="card-body">
+          <h5 class="card-title">{{ hotel.host.host_name }}</h5>
+          <p class="card-text card-descri" >{{ hotel.description }}</p>
+          <p><b>Precio $:</b>{{ hotel.price.$numberDecimal }}</p>
+          <p>{{ hotel.host.host_location }}</p>
+          <a href="#" class="btn btn-primary">Mas Información </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="container ">
+    <div class="row d-flex justify-content-center">
+
+      <div class="col">
+        <h4>Guía de Viajes</h4>
+        <ul>
+          <li>Amsterdam</li>
+          <li>Playa del Carmen</li>
+          <li>Acapulco</li>
+          <li>Santa Marta</li>
+        </ul>
+      </div>
+      <div class="col">
+        <h4>Viaja con Despegar</h4>
+        <ul>
+          <li>Guia de Viajes</li>
+          <li>Lagosol</li>
+          <li>Aerolíneas</li>
+          <li>Cartagena</li>
+        </ul>
+      </div>
+      <div class="col">
+        <h4>Hoteles y cabañas</h4>
+        <ul>
+          <li>Hoteles en Guatape</li>
+          <li>Hoteles en Villeta</li>
+          <li>Hoteles en Valledupar</li>
+          <li>Cabañas en Coveñas</li>
+        </ul>
+      </div>
+     
+    </div>
+  </div>
+</footer>
+<router-outlet></router-outlet>
